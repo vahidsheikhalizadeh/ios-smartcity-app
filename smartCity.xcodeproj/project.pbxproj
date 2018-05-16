@@ -12,6 +12,7 @@
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
 		39A2400120AC52C800B943DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400020AC52C800B943DB /* Assets.xcassets */; };
 		39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400220AC52C800B943DB /* LaunchScreen.storyboard */; };
+		39A2400D20AC531E00B943DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2400C20AC531E00B943DB /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		39A2400020AC52C800B943DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39A2400320AC52C800B943DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A2400520AC52C800B943DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39A2400C20AC531E00B943DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,38 @@
 			isa = PBXGroup;
 			children = (
 				39A23FF920AC52C700B943DB /* AppDelegate.swift */,
-				39A23FFB20AC52C700B943DB /* ViewController.swift */,
-				39A23FFD20AC52C700B943DB /* Main.storyboard */,
+				39A2400B20AC52DF00B943DB /* Data Model */,
+				39A2400F20AC534A00B943DB /* Presenter */,
+				39A2400E20AC532E00B943DB /* View */,
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
 				39A2400220AC52C800B943DB /* LaunchScreen.storyboard */,
 				39A2400520AC52C800B943DB /* Info.plist */,
 			);
 			path = smartCity;
+			sourceTree = "<group>";
+		};
+		39A2400B20AC52DF00B943DB /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				39A2400C20AC531E00B943DB /* Data.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		39A2400E20AC532E00B943DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39A23FFB20AC52C700B943DB /* ViewController.swift */,
+				39A23FFD20AC52C700B943DB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A2400F20AC534A00B943DB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */,
+				39A2400D20AC531E00B943DB /* Data.swift in Sources */,
 				39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T3B8LR8M9T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,7 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T3B8LR8M9T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
