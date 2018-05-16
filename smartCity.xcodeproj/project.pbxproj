@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3586A6D53D042A9652DA3B4E /* Pods_smartCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */; };
 		39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FF920AC52C700B943DB /* AppDelegate.swift */; };
 		39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FFB20AC52C700B943DB /* ViewController.swift */; };
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AB655A9AF2BF88F6D077B17 /* Pods-smartCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.release.xcconfig"; sourceTree = "<group>"; };
 		39A23FF620AC52C700B943DB /* smartCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A23FF920AC52C700B943DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A23FFB20AC52C700B943DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		39A2400320AC52C800B943DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A2400520AC52C800B943DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A2400C20AC531E00B943DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.debug.xcconfig"; sourceTree = "<group>"; };
+		ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3586A6D53D042A9652DA3B4E /* Pods_smartCity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37154D14945C37D378F115A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */,
+				1AB655A9AF2BF88F6D077B17 /* Pods-smartCity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		39A23FED20AC52C700B943DB = {
 			isa = PBXGroup;
 			children = (
 				39A23FF820AC52C700B943DB /* smartCity */,
 				39A23FF720AC52C700B943DB /* Products */,
+				37154D14945C37D378F115A0 /* Pods */,
+				6C4657FEACA76712E206A84D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +107,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		6C4657FEACA76712E206A84D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39A2400820AC52C800B943DB /* Build configuration list for PBXNativeTarget "smartCity" */;
 			buildPhases = (
+				20FAFE91993B174DAB0C83BC /* [CP] Check Pods Manifest.lock */,
 				39A23FF220AC52C700B943DB /* Sources */,
 				39A23FF320AC52C700B943DB /* Frameworks */,
 				39A23FF420AC52C700B943DB /* Resources */,
+				6F644A6F84E7AB8A36D3F8AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +182,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20FAFE91993B174DAB0C83BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smartCity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F644A6F84E7AB8A36D3F8AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-smartCity/Pods-smartCity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smartCity/Pods-smartCity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39A23FF220AC52C700B943DB /* Sources */ = {
@@ -306,15 +373,13 @@
 		};
 		39A2400920AC52C800B943DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -324,15 +389,13 @@
 		};
 		39A2400A20AC52C800B943DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AB655A9AF2BF88F6D077B17 /* Pods-smartCity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
