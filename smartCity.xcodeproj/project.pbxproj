@@ -14,6 +14,7 @@
 		39A2400120AC52C800B943DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400020AC52C800B943DB /* Assets.xcassets */; };
 		39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400220AC52C800B943DB /* LaunchScreen.storyboard */; };
 		39A2400D20AC531E00B943DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2400C20AC531E00B943DB /* Data.swift */; };
+		39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39A2401420B41A2500B943DB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		39A2400320AC52C800B943DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A2400520AC52C800B943DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A2400C20AC531E00B943DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		39A2401420B41A2500B943DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				39A2400E20AC532E00B943DB /* View */,
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
 				39A2400220AC52C800B943DB /* LaunchScreen.storyboard */,
+				39A2401420B41A2500B943DB /* GoogleService-Info.plist */,
 				39A2400520AC52C800B943DB /* Info.plist */,
 			);
 			path = smartCity;
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */,
+				39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */,
 				39A2400120AC52C800B943DB /* Assets.xcassets in Resources */,
 				39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */,
 			);
@@ -209,13 +213,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-smartCity/Pods-smartCity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

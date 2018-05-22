@@ -6,5 +6,10 @@ target 'smartCity' do
 
   # Pods for smartCity
 pod 'RealmSwift'
+pod 'Firebase'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'SVProgressHUD'
+pod 'ChameleonFramework'
 
 end
