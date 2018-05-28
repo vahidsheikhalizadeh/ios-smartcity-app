@@ -15,6 +15,7 @@
 		39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400220AC52C800B943DB /* LaunchScreen.storyboard */; };
 		39A2400D20AC531E00B943DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2400C20AC531E00B943DB /* Data.swift */; };
 		39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39A2401420B41A2500B943DB /* GoogleService-Info.plist */; };
+		39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65420BC53DB00921DB4 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		39A2400520AC52C800B943DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A2400C20AC531E00B943DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		39A2401420B41A2500B943DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		39D9C65420BC53DB00921DB4 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				39A2400220AC52C800B943DB /* LaunchScreen.storyboard */,
 				39A2401420B41A2500B943DB /* GoogleService-Info.plist */,
 				39A2400520AC52C800B943DB /* Info.plist */,
+				39D9C65420BC53DB00921DB4 /* RoundedButton.swift */,
 			);
 			path = smartCity;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */,
 				39A2400D20AC531E00B943DB /* Data.swift in Sources */,
 				39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */,
+				39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +399,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,7 +418,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
