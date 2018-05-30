@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Data: Object {
+class SensorDataModel: Object {
     
     @objc dynamic var id : Int = 0
     @objc dynamic var name : String = ""

@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  smartCity
 //
 //  Created by shick on 28.05.18.
@@ -10,13 +10,11 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,30 +27,34 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
-    @IBAction func registerButtonPressed(_ sender: AnyObject) {
+    @IBAction func loginButtonPressed(_ sender: Any) {
         
         SVProgressHUD.show()
-        //TODO: Set up a new user on our Firbase database
         
-        Auth.auth().createUser(withEmail: emailTextField.text! , password: passwordTextField.text!) {
-            
-            // closure code which passed as a input parameter to createUser(). input: (user,error) after in is the cloosure body
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) {
             (user, error) in
+            
             if error != nil {
+                
                 print(error!)
+                let alert = UIAlertController(title: "Error", message: "login was not successful", preferredStyle: .alert)
+                let action = UIAlertAction(title: "try again", style: .default, handler: { (alert) in
+                    SVProgressHUD.dismiss()
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion:nil)
             }
             else {
-                //SUCCESS
-                print("Registration Successfull")
+                
+                print("login was successful")
                 
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToSensors", sender: self)
+                
             }
         }
+        
     }
-    
     
     /*
     // MARK: - Navigation

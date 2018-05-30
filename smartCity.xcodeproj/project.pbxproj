@@ -12,10 +12,15 @@
 		39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FFB20AC52C700B943DB /* ViewController.swift */; };
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
 		39A2400120AC52C800B943DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400020AC52C800B943DB /* Assets.xcassets */; };
-		39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A2400220AC52C800B943DB /* LaunchScreen.storyboard */; };
-		39A2400D20AC531E00B943DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2400C20AC531E00B943DB /* Data.swift */; };
+		39A2400D20AC531E00B943DB /* SensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2400C20AC531E00B943DB /* SensorDataModel.swift */; };
 		39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39A2401420B41A2500B943DB /* GoogleService-Info.plist */; };
 		39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65420BC53DB00921DB4 /* RoundedButton.swift */; };
+		39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65820BC62C900921DB4 /* LoginViewController.swift */; };
+		39D9C65B20BC630A00921DB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */; };
+		39D9C65D20BD55B800921DB4 /* SensorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */; };
+		39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */; };
+		39D9C66520BEA4D200921DB4 /* CustomSensorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */; };
+		39D9C66620BEA4D200921DB4 /* CustomSensorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,11 +30,16 @@
 		39A23FFB20AC52C700B943DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39A23FFE20AC52C700B943DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39A2400020AC52C800B943DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		39A2400320AC52C800B943DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A2400520AC52C800B943DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39A2400C20AC531E00B943DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		39A2400C20AC531E00B943DB /* SensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataModel.swift; sourceTree = "<group>"; };
 		39A2401420B41A2500B943DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39D9C65420BC53DB00921DB4 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		39D9C65820BC62C900921DB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewController.swift; sourceTree = "<group>"; };
+		39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataViewController.swift; sourceTree = "<group>"; };
+		39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSensorCell.swift; sourceTree = "<group>"; };
+		39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSensorCell.xib; sourceTree = "<group>"; };
 		94F89095714C8743D45B634A /* Pods-smartCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,7 +91,6 @@
 				39A2400F20AC534A00B943DB /* Presenter */,
 				39A2400E20AC532E00B943DB /* View */,
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
-				39A2400220AC52C800B943DB /* LaunchScreen.storyboard */,
 				39A2401420B41A2500B943DB /* GoogleService-Info.plist */,
 				39A2400520AC52C800B943DB /* Info.plist */,
 				39D9C65420BC53DB00921DB4 /* RoundedButton.swift */,
@@ -92,7 +101,7 @@
 		39A2400B20AC52DF00B943DB /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				39A2400C20AC531E00B943DB /* Data.swift */,
+				39A2400C20AC531E00B943DB /* SensorDataModel.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -100,7 +109,12 @@
 		39A2400E20AC532E00B943DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39D9C66020BEA40900921DB4 /* Custom Cell */,
 				39A23FFB20AC52C700B943DB /* ViewController.swift */,
+				39D9C65820BC62C900921DB4 /* LoginViewController.swift */,
+				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
+				39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */,
+				39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */,
 				39A23FFD20AC52C700B943DB /* Main.storyboard */,
 			);
 			path = View;
@@ -111,6 +125,15 @@
 			children = (
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		39D9C66020BEA40900921DB4 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */,
+				39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 		6C4657FEACA76712E206A84D /* Frameworks */ = {
@@ -181,9 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39A2400420AC52C800B943DB /* LaunchScreen.storyboard in Resources */,
 				39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */,
 				39A2400120AC52C800B943DB /* Assets.xcassets in Resources */,
+				39D9C66620BEA4D200921DB4 /* CustomSensorCell.xib in Resources */,
 				39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */,
-				39A2400D20AC531E00B943DB /* Data.swift in Sources */,
+				39A2400D20AC531E00B943DB /* SensorDataModel.swift in Sources */,
 				39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */,
+				39D9C65B20BC630A00921DB4 /* RegisterViewController.swift in Sources */,
+				39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */,
+				39D9C66520BEA4D200921DB4 /* CustomSensorCell.swift in Sources */,
+				39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */,
+				39D9C65D20BD55B800921DB4 /* SensorListViewController.swift in Sources */,
 				39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,14 +292,6 @@
 				39A23FFE20AC52C700B943DB /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		39A2400220AC52C800B943DB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39A2400320AC52C800B943DB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
