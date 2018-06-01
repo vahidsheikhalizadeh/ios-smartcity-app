@@ -86,6 +86,7 @@
 		39A23FF820AC52C700B943DB /* smartCity */ = {
 			isa = PBXGroup;
 			children = (
+				39D9C65420BC53DB00921DB4 /* RoundedButton.swift */,
 				39A23FF920AC52C700B943DB /* AppDelegate.swift */,
 				39A2400B20AC52DF00B943DB /* Data Model */,
 				39A2400F20AC534A00B943DB /* Presenter */,
@@ -93,7 +94,6 @@
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
 				39A2401420B41A2500B943DB /* GoogleService-Info.plist */,
 				39A2400520AC52C800B943DB /* Info.plist */,
-				39D9C65420BC53DB00921DB4 /* RoundedButton.swift */,
 			);
 			path = smartCity;
 			sourceTree = "<group>";

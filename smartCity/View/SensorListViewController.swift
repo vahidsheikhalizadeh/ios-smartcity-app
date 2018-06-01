@@ -23,11 +23,11 @@ class SensorListTableViewController: UITableViewController {
         //TODO: either read sensor list from DB or make REST call ?
         
         let newSensor = SensorDataModel()
-        newSensor.name = ""
+        newSensor.name = "Light"
         sensorArray.append(newSensor)
         
         let newSensor2 = SensorDataModel()
-        newSensor2.name = ""
+        newSensor2.name = "Tempreture"
         sensorArray.append(newSensor2)
 
         // Uncomment the following line to preserve selection between presentations
@@ -39,6 +39,7 @@ class SensorListTableViewController: UITableViewController {
         
         
         //MARK:-  Register your MessageCell.xib file here
+        
         sensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
     }
 
@@ -51,9 +52,12 @@ class SensorListTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return sensorArray.count
     }
+    
+    ///////////////////////////////////////
+    
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
@@ -68,7 +72,7 @@ class SensorListTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = sensorArray[indexPath.row].name
+        // cell.textLabel?.text = sensorArray[indexPath.row].name
         
 
         return cell
