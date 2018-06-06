@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SensorListTableViewController: UITableViewController {
 
     
     @IBOutlet var sensorListTableView: UITableView!
     
-    var sensorArray = [SensorDataModel]()
+    let realm = try! Realm()
+    
+    //var sensorArray = [SensorDataModel]()
+    
+    
+    var sensorArray: Results<SensorDataModel>?
+    
+    
+    ////////////////////////////////////////////////
     
     
     override func viewDidLoad() {
@@ -22,21 +31,11 @@ class SensorListTableViewController: UITableViewController {
         
         //TODO: either read sensor list from DB or make REST call ?
         
-        let newSensor = SensorDataModel()
-        newSensor.name = "Light"
-        sensorArray.append(newSensor)
-        
-        let newSensor2 = SensorDataModel()
-        newSensor2.name = "Tempreture"
-        sensorArray.append(newSensor2)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
+        loadSensorList()
         
         //MARK:-  Register your MessageCell.xib file here
         
@@ -52,7 +51,7 @@ class SensorListTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sensorArray.count
+        return sensorArray?.count ?? 1
     }
     
     ///////////////////////////////////////
@@ -74,7 +73,12 @@ class SensorListTableViewController: UITableViewController {
         
         // cell.textLabel?.text = sensorArray[indexPath.row].name
         
-
+        if let sensors = sensorArray?[indexPath.row]{
+            
+            cell.textLabel?.text = sensors.name
+        }
+        
+        
         return cell
     }
      ///////////////////////////////////////
@@ -87,10 +91,20 @@ class SensorListTableViewController: UITableViewController {
         performSegue(withIdentifier: "showData", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+        let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVS.selectedSensor = sensorArray?[indexPath.row]
+            
+        }
+    }
      ///////////////////////////////////////
     
     
-    //Mark: - add a new sensor
+    //MARK: - add a new sensor
     @IBAction func addSensorPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
@@ -102,7 +116,7 @@ class SensorListTableViewController: UITableViewController {
             let newSensor = SensorDataModel()
             newSensor.name = textField.text!
             
-            self.sensorArray.append(newSensor)
+            self.saveSensorData(sensor: newSensor)
             self.tableView.reloadData()
             
         }
@@ -114,5 +128,30 @@ class SensorListTableViewController: UITableViewController {
         present(alert,animated: true, completion: nil)
     }
     
+    //MARK: - data manipulation
+    /////////////////////////////////////////
+    
+    func saveSensorData(sensor: SensorDataModel) {
+        do {
+            try realm.write {
+                realm.add(sensor)
+            }
+        } catch {
+            print("Error saving category \(error)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    
+    /////////////////////////////////////////
+    
+    
+    func loadSensorList() {
+        
+        sensorArray = realm.objects(SensorDataModel.self)
+        
+        tableView.reloadData()
+    }
 
 }

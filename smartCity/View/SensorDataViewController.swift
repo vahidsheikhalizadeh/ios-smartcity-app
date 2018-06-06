@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SensorDataViewController: UITableViewController {
+    
+    
+    var sensorArray:Results<SensorDataModel>?
+    let realm = try! Realm()
+    
+    var selectedSensor : SensorDataModel?{
+        
+        didSet{
+            
+            leadSensotData()
+        }
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,5 +102,8 @@ class SensorDataViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func leadSensotData()  {
+        
+        //sensorArray = selectedSensor?.
+    }
 }
