@@ -11,7 +11,13 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SVProgressHUD'
 pod 'ChameleonFramework'
-
+# Pods for HTTP Networking
+pod 'SwiftyJSON'
+pod 'Alamofire'
+# Reactive RxSwift
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'RxAlamofire'
 end
 
 post_install do |installer|

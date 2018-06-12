@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smartCity/View/SensorListViewController.swift"
-            timestampString = "549965893.629361"
+            timestampString = "550490208.533837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
