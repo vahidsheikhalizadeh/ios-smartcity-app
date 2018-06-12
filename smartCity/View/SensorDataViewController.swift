@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import SwiftyJSON
+import Alamofire
 
 class SensorDataViewController: UITableViewController {
     

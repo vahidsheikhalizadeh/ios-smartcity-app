@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 class SensorListTableViewController: UITableViewController {
 
@@ -31,7 +33,7 @@ class SensorListTableViewController: UITableViewController {
         
         //TODO: either read sensor list from DB or make REST call ?
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        // print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -67,15 +69,15 @@ class SensorListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = sensorListTableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
 
         // Configure the cell...
         
         // cell.textLabel?.text = sensorArray[indexPath.row].name
         
-        if let sensors = sensorArray?[indexPath.row]{
+        if let sensor = sensorArray?[indexPath.row]{
             
-            cell.textLabel?.text = sensors.name
+            cell.sensorNameCell.text = sensor.name
         }
         
         
@@ -128,7 +130,7 @@ class SensorListTableViewController: UITableViewController {
         present(alert,animated: true, completion: nil)
     }
     
-    //MARK: - data manipulation
+    //MARK: - Data manipulation
     /////////////////////////////////////////
     
     func saveSensorData(sensor: SensorDataModel) {
@@ -152,6 +154,27 @@ class SensorListTableViewController: UITableViewController {
         sensorArray = realm.objects(SensorDataModel.self)
         
         tableView.reloadData()
+    }
+    
+    //MARK: - Networking
+    
+    func getSensorList(url: String, currency: String) {
+        
+        Alamofire.request(url, method: .get)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    
+                    print("Success, Sensor List  Network Call")
+                    let _ : JSON = JSON(response.result.value!)
+                    
+                    //self.updateBitcoinData(json: bitcoinJSON, curFormat: currency)
+                    
+                } else {
+                    print("Error: \(String(describing: response.result.error))")
+                    //self.bitcoinPriceLabel.text = "Connection Issues"
+                }
+        }
+        
     }
 
 }
