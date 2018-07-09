@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3586A6D53D042A9652DA3B4E /* Pods_smartCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */; };
+		3961417620D01C0C00679841 /* AddSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961417520D01C0C00679841 /* AddSensorViewController.swift */; };
 		39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FF920AC52C700B943DB /* AppDelegate.swift */; };
 		39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FFB20AC52C700B943DB /* ViewController.swift */; };
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		1AB655A9AF2BF88F6D077B17 /* Pods-smartCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.release.xcconfig"; sourceTree = "<group>"; };
+		3961417520D01C0C00679841 /* AddSensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSensorViewController.swift; sourceTree = "<group>"; };
 		39A23FF620AC52C700B943DB /* smartCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A23FF920AC52C700B943DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A23FFB20AC52C700B943DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
 				39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */,
 				39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */,
+				3961417520D01C0C00679841 /* AddSensorViewController.swift */,
 				39A23FFD20AC52C700B943DB /* Main.storyboard */,
 			);
 			path = View;
@@ -283,6 +286,7 @@
 			files = (
 				39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */,
 				39A2400D20AC531E00B943DB /* SensorDataModel.swift in Sources */,
+				3961417620D01C0C00679841 /* AddSensorViewController.swift in Sources */,
 				39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */,
 				39D9C65B20BC630A00921DB4 /* RegisterViewController.swift in Sources */,
 				39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */,
@@ -429,7 +433,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -445,7 +452,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smartCity/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigatronik.smartCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

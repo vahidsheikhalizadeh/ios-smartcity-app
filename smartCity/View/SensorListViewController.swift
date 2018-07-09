@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Alamofire
 import SwiftyJSON
+import RxSwift
 
 class SensorListTableViewController: UITableViewController {
 
@@ -20,9 +21,16 @@ class SensorListTableViewController: UITableViewController {
     
     //var sensorArray = [SensorDataModel]()
     
+    var timer = Timer()
     
     var sensorArray: Results<SensorDataModel>?
     
+    ////////////////////////////////////////////////
+    //MARK: - RxSwift stuff
+    
+    let disposeBag = DisposeBag()
+    
+    let url = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD"
     
     ////////////////////////////////////////////////
     
@@ -30,12 +38,11 @@ class SensorListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //TODO: either read sensor list from DB or make REST call ?
         
-        // print(Realm.Configuration.defaultConfiguration.fileURL!)
+          print(Realm.Configuration.defaultConfiguration.fileURL!)
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         loadSensorList()
         
@@ -93,23 +100,38 @@ class SensorListTableViewController: UITableViewController {
         performSegue(withIdentifier: "showData", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-        let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVS.selectedSensor = sensorArray?[indexPath.row]
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//
+//        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+    //        guard let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController else {return}
+//
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            destinationVS.selectedSensor = sensorArray?[indexPath.row]
+//
+//        }
+//    }
      ///////////////////////////////////////
     
     
     //MARK: - add a new sensor
     @IBAction func addSensorPressed(_ sender: UIBarButtonItem) {
         
-        var textField = UITextField()
+        // here to use the new RXSwift --> create a new UICOntroller , add new sensor and then return to the list of sensors
+        print("add sensor plus button pressed")
+        
+        let targetVC = storyboard?.instantiateViewController(withIdentifier: "AddSensorViewController") as! AddSensorViewController
+        targetVC.ifButtonSelected
+            .subscribe(onNext: { name in
+                print(name)
+                
+            }).disposed(by: disposeBag)
+        
+        navigationController?.pushViewController(targetVC, animated: true)
+        
+        
+        
+      /*  var textField = UITextField()
         
         let alert = UIAlertController(title: "Add new Sensor", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "add Sensor", style: .default) { (action) in
@@ -128,6 +150,7 @@ class SensorListTableViewController: UITableViewController {
         }
         alert.addAction(action)
         present(alert,animated: true, completion: nil)
+        */
     }
     
     //MARK: - Data manipulation
@@ -157,16 +180,16 @@ class SensorListTableViewController: UITableViewController {
     }
     
     //MARK: - Networking
-    
-    func getSensorList(url: String, currency: String) {
+    // call the REST endpoint to get the list of sensors
+    func getSensorList(url: String) {
         
         Alamofire.request(url, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
                     print("Success, Sensor List  Network Call")
-                    let _ : JSON = JSON(response.result.value!)
-                    
+                    let resultJSON : JSON = JSON(response.result.value!)
+                    print(resultJSON)
                     //self.updateBitcoinData(json: bitcoinJSON, curFormat: currency)
                     
                 } else {
@@ -176,5 +199,12 @@ class SensorListTableViewController: UITableViewController {
         }
         
     }
+    //MARK: - Scheduler
+    func createScheduler() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { (timer) in
+            self.getSensorList(url: "")
+        })
+    }
+    
 
 }
