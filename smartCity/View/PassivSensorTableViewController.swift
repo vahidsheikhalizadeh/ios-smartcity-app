@@ -12,7 +12,11 @@ import RxSwift
 class PassivSensorTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
+    
     @IBOutlet var passicSensorListTableView: UITableView!
+    
+    var sensorArray  = ["Test","11","1131313","343645"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +25,7 @@ class PassivSensorTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
         passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
     }
 
@@ -34,24 +38,34 @@ class PassivSensorTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sensorArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
 
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
+        
+        cell.sensorNameCell.text = sensorArray[indexPath.row]
 
         return cell
     }
-    */
-
+   
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showData", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -190,11 +190,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Passiv" image="wifi" id="h23-bF-AcU"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Sensors" id="9uP-X6-pfx">
+                    <navigationItem key="navigationItem" title="Passive" id="9uP-X6-pfx">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zRi-mq-gPS">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addSensorPressed:" destination="Owj-uz-hy9" id="i7c-5C-Lua"/>
+                                <action selector="refreshButtonPressed:" destination="Owj-uz-hy9" id="ZTh-4I-cuc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -307,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igZ-yj-27x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4806" y="-385"/>
+            <point key="canvasLocation" x="4481" y="-381"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s2f-R2-CmO">
@@ -331,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMj-1P-QCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4950" y="751"/>
+            <point key="canvasLocation" x="4482" y="324"/>
         </scene>
         <!--Registration-->
         <scene sceneID="MLP-cr-jmH">
@@ -414,6 +414,7 @@
         <!--Navigation Controller-->
         <scene sceneID="36b-Sa-VMj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOg-e4-FuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZb-vd-S4g" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0hy-IP-s4S">
@@ -430,11 +431,13 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="epp-Xw-ww0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ztd-o9-KGF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aOg-e4-FuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-556" y="-577"/>
         </scene>
@@ -459,7 +462,7 @@
             </objects>
             <point key="canvasLocation" x="2353" y="-577"/>
         </scene>
-        <!--Passiv Sensors-->
+        <!--Active-->
         <scene sceneID="qVU-JS-ZzW">
             <objects>
                 <tableViewController id="gIp-iG-TqP" customClass="PassivSensorTableViewController" customModule="smartCity" customModuleProvider="target" sceneMemberID="viewController">
@@ -487,11 +490,12 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Active" image="wifi" id="G03-bU-0Cb"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Passiv Sensors" id="Iin-Ib-K7a">
+                    <navigationItem key="navigationItem" title="Active" id="Iin-Ib-K7a">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WLt-3G-Dnw">
+                            <color key="tintColor" red="0.85098039215686272" green="0.85490196078431369" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addSensorPressed:" destination="gIp-iG-TqP" id="nHP-Pp-58x"/>
-                                <segue destination="kRf-SB-5zH" kind="show" identifier="addSensor" id="4Hg-G2-DzA"/>
+                                <segue destination="kRf-SB-5zH" kind="show" id="aLN-cq-NF6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -511,6 +515,6 @@
         <image name="wifi" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xpf-MS-o9E"/>
+        <segue reference="Nhu-d8-9oA"/>
     </inferredMetricsTieBreakers>
 </document>

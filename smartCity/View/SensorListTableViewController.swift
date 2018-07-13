@@ -40,7 +40,7 @@ class SensorListTableViewController: UITableViewController {
         
         fetchSensorData(url: "http://localhost:8080/sensors")
 
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         loadSensorList()
         
@@ -117,8 +117,8 @@ class SensorListTableViewController: UITableViewController {
      ///////////////////////////////////////
     
     
-    //MARK: - add a new sensor
-    @IBAction func addRefreshPressed(_ sender: UIBarButtonItem) {
+    //MARK: - Refresh sensor data
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
         
         // here to use the new RXSwift --> create a new UICOntroller , add new sensor and then return to the list of sensors
         print("refresh button pressed")
