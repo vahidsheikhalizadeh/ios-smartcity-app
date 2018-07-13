@@ -476,7 +476,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lBD-Bq-TaG" kind="show" id="vzE-ni-qAT"/>
+                                    <segue destination="lBD-Bq-TaG" kind="show" identifier="showData" id="vzE-ni-qAT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -491,7 +491,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WLt-3G-Dnw">
                             <connections>
                                 <action selector="addSensorPressed:" destination="gIp-iG-TqP" id="nHP-Pp-58x"/>
-                                <segue destination="kRf-SB-5zH" kind="show" identifier="addNewSensor" id="4Hg-G2-DzA"/>
+                                <segue destination="kRf-SB-5zH" kind="show" identifier="addSensor" id="4Hg-G2-DzA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
