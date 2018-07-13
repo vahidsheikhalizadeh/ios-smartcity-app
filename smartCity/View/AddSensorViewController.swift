@@ -20,11 +20,11 @@ class AddSensorViewController: UIViewController {
     
     @IBOutlet weak var urlTextField: UITextField!
     
-    private var ifButtonSelectedVariables = Variable("")
+    private var ifAddButtonSelectedVariables = Variable("")
     
     var ifButtonSelected : Observable<String>{
     
-        return ifButtonSelectedVariables.asObservable()
+        return ifAddButtonSelectedVariables.asObservable()
     }
 
     override func viewDidLoad() {
@@ -56,8 +56,8 @@ class AddSensorViewController: UIViewController {
         guard let sensorName = sensorNameTextField.text else {return}
         guard let urlAdress = urlTextField.text else {return}
         
-        ifButtonSelectedVariables.value = sensorName
-        ifButtonSelectedVariables.value = urlAdress
+        ifAddButtonSelectedVariables.value = sensorName
+        ifAddButtonSelectedVariables.value = urlAdress
         
         addNewSensor(url: urlAdress,name: sensorName)
         
@@ -67,7 +67,7 @@ class AddSensorViewController: UIViewController {
     //MARK: - Networking
     func addNewSensor(url: String,name: String){
         
-        Alamofire.request("http://localhost:9999/smartcity-service/sensors").responseJSON { response in
+        Alamofire.request(url).responseJSON { response in
             debugPrint(response)
             
             if let json : JSON = JSON (response.result.value!) {

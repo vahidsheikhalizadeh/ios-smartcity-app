@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3586A6D53D042A9652DA3B4E /* Pods_smartCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3FF6349379AD13DE15B61C /* Pods_smartCity.framework */; };
 		3961417620D01C0C00679841 /* AddSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961417520D01C0C00679841 /* AddSensorViewController.swift */; };
+		397BFAC520F8BD78008466FE /* PassivSensorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */; };
+		397BFAC720F8C529008466FE /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 397BFAC620F8C528008466FE /* wifi.png */; };
 		39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FF920AC52C700B943DB /* AppDelegate.swift */; };
 		39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FFB20AC52C700B943DB /* ViewController.swift */; };
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		1AB655A9AF2BF88F6D077B17 /* Pods-smartCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartCity/Pods-smartCity.release.xcconfig"; sourceTree = "<group>"; };
 		3961417520D01C0C00679841 /* AddSensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSensorViewController.swift; sourceTree = "<group>"; };
+		397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassivSensorTableViewController.swift; sourceTree = "<group>"; };
+		397BFAC620F8C528008466FE /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
 		39A23FF620AC52C700B943DB /* smartCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A23FF920AC52C700B943DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A23FFB20AC52C700B943DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				39A2400F20AC534A00B943DB /* Presenter */,
 				39A2400E20AC532E00B943DB /* View */,
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
+				397BFAC620F8C528008466FE /* wifi.png */,
 				39A2401420B41A2500B943DB /* GoogleService-Info.plist */,
 				39A2400520AC52C800B943DB /* Info.plist */,
 			);
@@ -117,6 +122,7 @@
 				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
 				39D9C65C20BD55B800921DB4 /* SensorListTableViewController.swift */,
 				39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */,
+				397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */,
 				3961417520D01C0C00679841 /* AddSensorViewController.swift */,
 				39A23FFD20AC52C700B943DB /* Main.storyboard */,
 			);
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */,
+				397BFAC720F8C529008466FE /* wifi.png in Resources */,
 				39A2400120AC52C800B943DB /* Assets.xcassets in Resources */,
 				39D9C66620BEA4D200921DB4 /* CustomSensorCell.xib in Resources */,
 				39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */,
@@ -294,6 +301,7 @@
 				39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */,
 				39D9C65D20BD55B800921DB4 /* SensorListTableViewController.swift in Sources */,
 				39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */,
+				397BFAC520F8BD78008466FE /* PassivSensorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

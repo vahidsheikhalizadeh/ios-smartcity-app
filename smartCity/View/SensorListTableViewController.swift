@@ -28,7 +28,7 @@ class SensorListTableViewController: UITableViewController {
     ////////////////////////////////////////////////
     //MARK: - RxSwift stuff
     
-    let disposeBag = DisposeBag()
+    
     
     let url = ""
     
@@ -37,9 +37,6 @@ class SensorListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: either read sensor list from DB or make REST call ?
-
         
         fetchSensorData(url: "http://localhost:8080/sensors")
 
@@ -121,19 +118,10 @@ class SensorListTableViewController: UITableViewController {
     
     
     //MARK: - add a new sensor
-    @IBAction func addSensorPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addRefreshPressed(_ sender: UIBarButtonItem) {
         
         // here to use the new RXSwift --> create a new UICOntroller , add new sensor and then return to the list of sensors
-        print("add sensor plus button pressed")
-        
-        let targetVC = storyboard?.instantiateViewController(withIdentifier: "AddSensorViewController") as! AddSensorViewController
-        targetVC.ifButtonSelected
-            .subscribe(onNext: { name in
-                print(name)
-                
-            }).disposed(by: disposeBag)
-        
-        navigationController?.pushViewController(targetVC, animated: true)
+        print("refresh button pressed")
         
         
         
@@ -159,8 +147,12 @@ class SensorListTableViewController: UITableViewController {
         */
     }
     
+    
+    
+    
+    
     //MARK: - Data manipulation
-    /////////////////////////////////////////
+    
     
     func saveSensorData(sensor: SensorDataModel) {
         do {
@@ -187,7 +179,8 @@ class SensorListTableViewController: UITableViewController {
     }
     
     //MARK: - Networking
-    //////////////////////////////     call the REST endpoint to fetch the sensor data    /////////////////////////////////////////
+    
+
     
     
     func fetchSensorData(url: String) {
@@ -287,6 +280,8 @@ class SensorListTableViewController: UITableViewController {
         }
         
     }
+    
+    
     //MARK: - Scheduler
     func createScheduler() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { (timer) in
