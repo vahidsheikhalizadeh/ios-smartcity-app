@@ -67,14 +67,24 @@ class AddSensorViewController: UIViewController {
     //MARK: - Networking
     func addNewSensor(url: String,name: String){
         
-        Alamofire.request("http://localhost:9999/sensors/data").responseJSON { response in
+        Alamofire.request("http://localhost:9999/smartcity-service/sensors").responseJSON { response in
             debugPrint(response)
             
-            if let json = response.result.value {
+            if let json : JSON = JSON (response.result.value!) {
                 print("JSON: \(json)")
+                self.updateSensorData(json: json)
             }
         }
         
+    }
+    
+    //MARK: - JSON Parsing
+    /**************************************************************/
+    
+    func updateSensorData(json : JSON){
+        
+        let sensorResult = json ["sensors"]["data"][6]
+        print("\(sensorResult)")
     }
         
 

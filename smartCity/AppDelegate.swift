@@ -20,8 +20,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
        
         FirebaseApp.configure()
-            
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+      /*  let s1 = SensorDataModel()
+        s1.name = "Temperatur"
+        s1.id = 1
+        
+        saveSensorData(sensor: s1)
+        
+        let s2 = SensorDataModel()
+        s2.name = "Luftfeuchtigkeit"
+        s2.id = 2
+        saveSensorData(sensor: s2)
+        
+        
+        let s3 = SensorDataModel()
+        s3.name = "Lichtsensor"
+        s3.id = 3
+        saveSensorData(sensor: s3)
+        
+        let s4 = SensorDataModel()
+        s4.name = "Füllstand"
+        s4.id = 4
+        saveSensorData(sensor: s4)
+        
+        let s5 = SensorDataModel()
+        s5.name = "Solar"
+        s5.id = 5
+        saveSensorData(sensor: s5)
+        
+        let s6 = SensorDataModel()
+        s6.name = "Parkplatz"
+        s6.id = 6
+        saveSensorData(sensor: s6) */
+ 
+ 
         return true
+    }
+    
+    func saveSensorData(sensor: SensorDataModel) {
+        let realm = try! Realm()
+        do {
+            try realm.write {
+                realm.add(sensor)
+            }
+        } catch {
+            print("Error saving category \(error)")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

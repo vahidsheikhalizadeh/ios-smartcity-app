@@ -30,7 +30,7 @@ class SensorListTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
     
-    let url = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD"
+    let url = ""
     
     ////////////////////////////////////////////////
     
@@ -39,8 +39,9 @@ class SensorListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         //TODO: either read sensor list from DB or make REST call ?
+
         
-          print(Realm.Configuration.defaultConfiguration.fileURL!)
+        fetchSensorData(url: "http://localhost:8080/sensors")
 
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -83,7 +84,10 @@ class SensorListTableViewController: UITableViewController {
         // cell.textLabel?.text = sensorArray[indexPath.row].name
         
         if let sensor = sensorArray?[indexPath.row]{
-            
+
+            //cell.sensorNameCell.text = sensor.sensorData[indexPath.row].name
+
+            /*since the name of active sensors are fixes, here initialize the table view with the fixed array*/
             cell.sensorNameCell.text = sensor.name
         }
         
@@ -104,13 +108,15 @@ class SensorListTableViewController: UITableViewController {
 //
 //
 //        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-    //        guard let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController else {return}
+//            guard let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController else {return}
 //
 //        if let indexPath = tableView.indexPathForSelectedRow {
 //            destinationVS.selectedSensor = sensorArray?[indexPath.row]
 //
 //        }
 //    }
+    
+    
      ///////////////////////////////////////
     
     
@@ -176,34 +182,121 @@ class SensorListTableViewController: UITableViewController {
         
         sensorArray = realm.objects(SensorDataModel.self)
         
+        
         tableView.reloadData()
     }
     
     //MARK: - Networking
-    // call the REST endpoint to get the list of sensors
-    func getSensorList(url: String) {
+    //////////////////////////////     call the REST endpoint to fetch the sensor data    /////////////////////////////////////////
+    
+    
+    func fetchSensorData(url: String) {
         
         Alamofire.request(url, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
                     print("Success, Sensor List  Network Call")
-                    let resultJSON : JSON = JSON(response.result.value!)
-                    print(resultJSON)
+                    
+                     let resultJSON : JSON = JSON(response.result.value!)
+    
+                    
+                    let s1 = SensorDataModel()
+                    s1.id = 1
+                    s1.name = "Temperatur"
+                    s1.value = resultJSON["_embedded"]["sensors"][1]["data"][4].string!
+                        
+                        
+                        
+                    //self.saveSensorData(sensor: s1)
+                    
+                    let s2 = SensorDataModel()
+                    s2.id = 2
+                    s2.name = "Luftfeuchtigkeit"
+                    s2.value = resultJSON["_embedded"]["sensors"][1]["data"][5].string!
+                    
+                   //self.saveSensorData(sensor: s2)
+                    
+                    
+                    let s3 = SensorDataModel()
+                    s3.id = 3
+                    s3.name = "Lichtsensor"
+                    s3.value = resultJSON["_embedded"]["sensors"][1]["data"][2].string!
+                    
+                    //self.saveSensorData(sensor: s3)
+                    
+                    let s4 = SensorDataModel()
+                    s4.id = 4
+                    s4.name = "Füllstand"
+                    s4.value = resultJSON["_embedded"]["sensors"][1]["data"][3].string!
+                    
+                    //self.saveSensorData(sensor: s4)
+                    
+                    let s5 = SensorDataModel()
+                    s5.id = 5
+                    s5.name = "Solar"
+                    s5.value = resultJSON["_embedded"]["sensors"][1]["data"][1].string!
+                    
+                    //self.saveSensorData(sensor: s5)
+                    
+                    
+                    let s6 = SensorDataModel()
+                    s6.id = 6
+                    s6.name = "Parkplatz"
+                    //s6.value = resultJSON["_embedded"]["sensors"][1]["data"][6].string!
+                    
+                    
+                    
+                    
+                   // self.saveSensorData(sensor: s11)
+                    
+                    
+                    try! self.realm.write {
+                        
+                        self.realm.deleteAll()
+                        self.realm.add(s1)
+                        self.realm.add(s2)
+                        self.realm.add(s3)
+                        self.realm.add(s4)
+                        self.realm.add(s5)
+                        self.realm.add(s6)
+                        
+                        
+                        let parkingSpace = self.realm.objects(SensorDataModel.self).filter("name = 'Parkplatz'").last!
+                        
+                        
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][6].string!)
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][7].string!)
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][8].string!)
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][9].string!)
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][10].string!)
+                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][11].string!)
+                        
+                        
+                        
+                    }
+                    
+                    print("RESULT: \(resultJSON["_embedded"]["sensors"][1]["data"][2])")
                     //self.updateBitcoinData(json: bitcoinJSON, curFormat: currency)
                     
                 } else {
                     print("Error: \(String(describing: response.result.error))")
                     //self.bitcoinPriceLabel.text = "Connection Issues"
                 }
+                
         }
         
     }
     //MARK: - Scheduler
     func createScheduler() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { (timer) in
-            self.getSensorList(url: "")
+            self.fetchSensorData(url: "HHH")
         })
+    }
+    
+    
+    func writeToDB() {
+        
     }
     
 

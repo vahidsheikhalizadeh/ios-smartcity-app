@@ -18,7 +18,7 @@
 		39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65420BC53DB00921DB4 /* RoundedButton.swift */; };
 		39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65820BC62C900921DB4 /* LoginViewController.swift */; };
 		39D9C65B20BC630A00921DB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */; };
-		39D9C65D20BD55B800921DB4 /* SensorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */; };
+		39D9C65D20BD55B800921DB4 /* SensorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65C20BD55B800921DB4 /* SensorListTableViewController.swift */; };
 		39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */; };
 		39D9C66520BEA4D200921DB4 /* CustomSensorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */; };
 		39D9C66620BEA4D200921DB4 /* CustomSensorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */; };
@@ -38,7 +38,7 @@
 		39D9C65420BC53DB00921DB4 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		39D9C65820BC62C900921DB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewController.swift; sourceTree = "<group>"; };
+		39D9C65C20BD55B800921DB4 /* SensorListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListTableViewController.swift; sourceTree = "<group>"; };
 		39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataViewController.swift; sourceTree = "<group>"; };
 		39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSensorCell.swift; sourceTree = "<group>"; };
 		39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSensorCell.xib; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				39A23FFB20AC52C700B943DB /* ViewController.swift */,
 				39D9C65820BC62C900921DB4 /* LoginViewController.swift */,
 				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
-				39D9C65C20BD55B800921DB4 /* SensorListViewController.swift */,
+				39D9C65C20BD55B800921DB4 /* SensorListTableViewController.swift */,
 				39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */,
 				3961417520D01C0C00679841 /* AddSensorViewController.swift */,
 				39A23FFD20AC52C700B943DB /* Main.storyboard */,
@@ -292,7 +292,7 @@
 				39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */,
 				39D9C66520BEA4D200921DB4 /* CustomSensorCell.swift in Sources */,
 				39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */,
-				39D9C65D20BD55B800921DB4 /* SensorListViewController.swift in Sources */,
+				39D9C65D20BD55B800921DB4 /* SensorListTableViewController.swift in Sources */,
 				39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
