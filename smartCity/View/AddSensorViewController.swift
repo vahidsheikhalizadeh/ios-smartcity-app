@@ -74,6 +74,9 @@ class AddSensorViewController: UIViewController {
                 //print("JSON: \(json)")
                 self.updateSensorData(json: json)
             }
+            else {
+                print("Error in HTTP call")
+            }
         }
         
     }

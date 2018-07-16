@@ -15,7 +15,7 @@ class PassivSensorTableViewController: UITableViewController {
     
     @IBOutlet var passicSensorListTableView: UITableView!
     
-    var sensorArray  = ["Test","11","1131313","343645"]
+    var sensorArray  = ["Test"]
     
     
     override func viewDidLoad() {
@@ -26,7 +26,10 @@ class PassivSensorTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSensorPressed))
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,13 +118,17 @@ class PassivSensorTableViewController: UITableViewController {
         
         
         let targetVC = storyboard?.instantiateViewController(withIdentifier: "AddSensorViewController") as! AddSensorViewController
+        
+        navigationController?.pushViewController(targetVC, animated: true)
+        
         targetVC.ifButtonSelected
             .subscribe(onNext: { name in
                 print(name)
                 
+                self.sensorArray.append(name)
+                self.tableView.reloadData()
+                
             }).disposed(by: disposeBag)
-        
-        navigationController?.pushViewController(targetVC, animated: true)
 
     }
 }
