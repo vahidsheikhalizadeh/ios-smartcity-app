@@ -67,11 +67,11 @@ class AddSensorViewController: UIViewController {
     //MARK: - Networking
     func addNewSensor(url: String,name: String){
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request("http://localhost:8080/sensors").responseJSON { response in
             debugPrint(response)
             
             if let json : JSON = JSON (response.result.value!) {
-                print("JSON: \(json)")
+                //print("JSON: \(json)")
                 self.updateSensorData(json: json)
             }
         }
@@ -83,8 +83,8 @@ class AddSensorViewController: UIViewController {
     
     func updateSensorData(json : JSON){
         
-        let sensorResult = json ["sensors"]["data"][6]
-        print("\(sensorResult)")
+        //let sensorResult = json ["sensors"]["data"][6]
+        
     }
         
 

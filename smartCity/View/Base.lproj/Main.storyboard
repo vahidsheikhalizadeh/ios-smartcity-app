@@ -194,7 +194,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zRi-mq-gPS">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="refreshButtonPressed:" destination="Owj-uz-hy9" id="ZTh-4I-cuc"/>
+                                <action selector="refreshButtonPressed:" destination="Owj-uz-hy9" id="VvO-GS-g9f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -414,7 +414,6 @@
         <!--Navigation Controller-->
         <scene sceneID="36b-Sa-VMj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aOg-e4-FuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZb-vd-S4g" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0hy-IP-s4S">
@@ -438,6 +437,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ztd-o9-KGF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOg-e4-FuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-556" y="-577"/>
         </scene>
@@ -470,6 +470,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="apK-eR-M9X">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <segue destination="kRf-SB-5zH" kind="show" id="quT-wU-Kra"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomSensorCell" rowHeight="100" id="7pl-bE-pBM">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -516,5 +524,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Nhu-d8-9oA"/>
+        <segue reference="aLN-cq-NF6"/>
     </inferredMetricsTieBreakers>
 </document>
