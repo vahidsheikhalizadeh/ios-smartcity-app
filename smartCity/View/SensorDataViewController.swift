@@ -137,13 +137,10 @@ class SensorDataViewController: UITableViewController {
     
     func updateSensorIcon(name: String) -> String {
         
-        
-        print("!!!!!!!!!!")
-        
         switch name {
             
         case "Temperatur":
-            return "temp-icon"
+            return "temperature-icon"
             
         case "Luftfeuchtigkeit":
             return "humidity-icon"
@@ -158,7 +155,7 @@ class SensorDataViewController: UITableViewController {
             return "trash-icon"
             
         case "Solar":
-            return "solar-icon"
+            return "solar-icon2"
 
         default:
             return "sensor"
