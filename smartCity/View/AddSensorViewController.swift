@@ -11,6 +11,7 @@ import RxSwift
 import Alamofire
 import RxAlamofire
 import SwiftyJSON
+import RealmSwift
 
 class AddSensorViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class AddSensorViewController: UIViewController {
     @IBOutlet weak var sensorNameTextField: UITextField!
     
     @IBOutlet weak var urlTextField: UITextField!
+    
+    let realm = try! Realm()
     
     private var ifAddButtonSelectedVariables = Variable("")
     
@@ -57,17 +60,16 @@ class AddSensorViewController: UIViewController {
         guard let urlAdress = urlTextField.text else {return}
         
         ifAddButtonSelectedVariables.value = sensorName
-        ifAddButtonSelectedVariables.value = urlAdress
+        //ifAddButtonSelectedVariables.value = urlAdress
         
         addNewSensor(url: urlAdress,name: sensorName)
-        
         
         }
     
     //MARK: - Networking
     func addNewSensor(url: String,name: String){
         
-        Alamofire.request("http://localhost:8080/sensors").responseJSON { response in
+        Alamofire.request(url).responseJSON { response in
             debugPrint(response)
             
             if let json : JSON = JSON (response.result.value!) {
@@ -81,6 +83,27 @@ class AddSensorViewController: UIViewController {
         
     }
     
+    
+    //MARK: - DATA Manipulation
+    
+    func saveSensorData(name: String, data: JSON) {
+        do {
+            try realm.write {
+                var sensorDM = SensorDataModel()
+                sensorDM.name = name
+//                sensorDM.data = data
+                realm.add(sensorDM)
+            }
+        } catch {
+            print("Error saving category \(error)")
+        }
+        
+    }
+    
+    
+    
+    
+    
     //MARK: - JSON Parsing
     /**************************************************************/
     
@@ -89,6 +112,8 @@ class AddSensorViewController: UIViewController {
         //let sensorResult = json ["sensors"]["data"][6]
         
     }
+    
+    
         
 
 }

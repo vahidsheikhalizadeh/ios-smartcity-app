@@ -38,20 +38,15 @@ class SensorListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchSensorData(url: "http://localhost:8080/sensors")
-
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchSensorData(url: "https://reqres.in/api/users/2")
         
         loadSensorList()
-        
-        //MARK:-  Register your MessageCell.xib file here
         
         sensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -75,16 +70,9 @@ class SensorListTableViewController: UITableViewController {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
-
-        // Configure the cell...
-        
-        // cell.textLabel?.text = sensorArray[indexPath.row].name
         
         if let sensor = sensorArray?[indexPath.row]{
-
-            //cell.sensorNameCell.text = sensor.sensorData[indexPath.row].name
-
-            /*since the name of active sensors are fixes, here initialize the table view with the fixed array*/
+            
             cell.sensorNameCell.text = sensor.name
         }
         
@@ -97,21 +85,20 @@ class SensorListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "showData", sender: self)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-//            guard let destinationVS = tabCtrl.viewControllers![0] as! SensorDataViewController else {return}
-//
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            destinationVS.selectedSensor = sensorArray?[indexPath.row]
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVS = segue.destination as! SensorDataViewController
+
+        if let indexPath = tableView.indexPathForSelectedRow {
+            
+            destinationVS.selectedSensor = sensorArray?[indexPath.row]
+            
+        }
+    }
     
     
      ///////////////////////////////////////
@@ -182,10 +169,9 @@ class SensorListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
+    
     //MARK: - Networking
-    
-
-    
     
     func fetchSensorData(url: String) {
         
@@ -201,16 +187,16 @@ class SensorListTableViewController: UITableViewController {
                     let s1 = SensorDataModel()
                     s1.id = 1
                     s1.name = "Temperatur"
-                    s1.value = resultJSON["_embedded"]["sensors"][1]["data"][4].string!
+                    //s1.datas = resultJSON["_embedded"]["sensors"][1]["data"][4].string!
                         
                         
                         
-                    //self.saveSensorData(sensor: s1)
+                    
                     
                     let s2 = SensorDataModel()
                     s2.id = 2
                     s2.name = "Luftfeuchtigkeit"
-                    s2.value = resultJSON["_embedded"]["sensors"][1]["data"][5].string!
+                    //s2.datas = resultJSON["_embedded"]["sensors"][1]["data"][5].string!
                     
                    //self.saveSensorData(sensor: s2)
                     
@@ -218,21 +204,21 @@ class SensorListTableViewController: UITableViewController {
                     let s3 = SensorDataModel()
                     s3.id = 3
                     s3.name = "Lichtsensor"
-                    s3.value = resultJSON["_embedded"]["sensors"][1]["data"][2].string!
+                    //s3.datas = resultJSON["_embedded"]["sensors"][1]["data"][2].string!
                     
-                    //self.saveSensorData(sensor: s3)
+                    
                     
                     let s4 = SensorDataModel()
                     s4.id = 4
                     s4.name = "Füllstand"
-                    s4.value = resultJSON["_embedded"]["sensors"][1]["data"][3].string!
+                    //s4.datas = resultJSON["_embedded"]["sensors"][1]["data"][3].string!
                     
-                    //self.saveSensorData(sensor: s4)
+                    
                     
                     let s5 = SensorDataModel()
                     s5.id = 5
                     s5.name = "Solar"
-                    s5.value = resultJSON["_embedded"]["sensors"][1]["data"][1].string!
+                    //s5.datas = resultJSON["_embedded"]["sensors"][1]["data"][1].string!
                     
                     //self.saveSensorData(sensor: s5)
                     
@@ -259,15 +245,14 @@ class SensorListTableViewController: UITableViewController {
                         self.realm.add(s6)
                         
                         
-                        let parkingSpace = self.realm.objects(SensorDataModel.self).filter("name = 'Parkplatz'").last!
+//                        let parkingSpace = self.realm.objects(SensorDataModel.self).filter("name = 'Parkplatz'").last!
                         
-                        
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][6].string!)
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][7].string!)
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][8].string!)
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][9].string!)
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][10].string!)
-                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][11].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][6].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][7].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][8].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][9].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][10].string!)
+//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][11].string!)
                         
                         
                         

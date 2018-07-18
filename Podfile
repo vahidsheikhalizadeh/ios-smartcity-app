@@ -18,6 +18,7 @@ pod 'Alamofire'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'RxAlamofire'
+pod 'SwipeCellKit'
 end
 
 post_install do |installer|

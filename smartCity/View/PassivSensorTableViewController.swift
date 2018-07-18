@@ -8,8 +8,13 @@
 
 import UIKit
 import RxSwift
+import RealmSwift
 
 class PassivSensorTableViewController: UITableViewController {
+   
+    
+   
+    let realm = try! Realm()
     
     let disposeBag = DisposeBag()
     
@@ -20,16 +25,8 @@ class PassivSensorTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSensorPressed))
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,36 +55,57 @@ class PassivSensorTableViewController: UITableViewController {
         
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
-        
+        //cell.delegate = self
         cell.sensorNameCell.text = sensorArray[indexPath.row]
-
+        
+       
+        
         return cell
     }
+    
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "showData", sender: self)
     }
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            sensorArray.remove(at: indexPath.item)
+            
+            /*
+             here to remove from the database
+             
+             do {
+             try realm.write{
+             realm.delete(sensorArray[indexPath.row])
+             }
+             }
+             catch{
+             print("Error deleting passiv sensor \(error)")
+                }
+             
+             
+             */
+        
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -132,3 +150,30 @@ class PassivSensorTableViewController: UITableViewController {
 
     }
 }
+
+
+////MARK: - Swipe Cell Delegate Method
+//
+//extension PassivSensorTableViewController: SwipeTableViewCellDelegate{
+//
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//        guard orientation == .right else { return nil }
+//
+//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//
+//            print("Swipe closure execution !")
+//        }
+//
+//        // customize the action appearance
+//        deleteAction.image = UIImage(named: "delete-icon")
+//
+//        return [deleteAction]
+//    }
+//
+//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+//        var options = SwipeOptions()
+//        options.expansionStyle = .destructive
+//        options.transitionStyle = .border
+//        return options
+//    }
+//}

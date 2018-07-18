@@ -13,13 +13,11 @@ class SensorDataModel: Object {
     
       @objc dynamic var id: Int = 0
       @objc dynamic var name  : String = ""
-      @objc dynamic var value : String = ""
-      let parkplatzValue = List<String>()
+      let datas = List<Data>()
+    
+    
+      //@objc dynamic var value : String = ""
+      //let parkplatzValue = List<String>()
+    
     
 }
-
-
-//class ParkPlatz: Object {
-//    @objc dynamic var value = false
-//}
-

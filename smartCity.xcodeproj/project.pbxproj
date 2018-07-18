@@ -11,6 +11,10 @@
 		3961417620D01C0C00679841 /* AddSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961417520D01C0C00679841 /* AddSensorViewController.swift */; };
 		397BFAC520F8BD78008466FE /* PassivSensorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */; };
 		397BFAC720F8C529008466FE /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 397BFAC620F8C528008466FE /* wifi.png */; };
+		397BFACB20FF2D1A008466FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397BFACA20FF2D1A008466FE /* Data.swift */; };
+		397BFACD20FF48B7008466FE /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397BFACC20FF48B7008466FE /* GenericModel.swift */; };
+		397BFAD120FF65DF008466FE /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397BFACF20FF65DF008466FE /* DataTableViewCell.swift */; };
+		397BFAD220FF65DF008466FE /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397BFAD020FF65DF008466FE /* DataTableViewCell.xib */; };
 		39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FF920AC52C700B943DB /* AppDelegate.swift */; };
 		39A23FFC20AC52C700B943DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A23FFB20AC52C700B943DB /* ViewController.swift */; };
 		39A23FFF20AC52C700B943DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A23FFD20AC52C700B943DB /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 		3961417520D01C0C00679841 /* AddSensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSensorViewController.swift; sourceTree = "<group>"; };
 		397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassivSensorTableViewController.swift; sourceTree = "<group>"; };
 		397BFAC620F8C528008466FE /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
+		397BFACA20FF2D1A008466FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		397BFACC20FF48B7008466FE /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
+		397BFACF20FF65DF008466FE /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		397BFAD020FF65DF008466FE /* DataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		39A23FF620AC52C700B943DB /* smartCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A23FF920AC52C700B943DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A23FFB20AC52C700B943DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +79,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		397BFACE20FF65A2008466FE /* Data Cell */ = {
+			isa = PBXGroup;
+			children = (
+				397BFACF20FF65DF008466FE /* DataTableViewCell.swift */,
+				397BFAD020FF65DF008466FE /* DataTableViewCell.xib */,
+			);
+			path = "Data Cell";
+			sourceTree = "<group>";
+		};
 		39A23FED20AC52C700B943DB = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +125,9 @@
 		39A2400B20AC52DF00B943DB /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				397BFACC20FF48B7008466FE /* GenericModel.swift */,
 				39A2400C20AC531E00B943DB /* SensorDataModel.swift */,
+				397BFACA20FF2D1A008466FE /* Data.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -116,7 +135,8 @@
 		39A2400E20AC532E00B943DB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39D9C66020BEA40900921DB4 /* Custom Cell */,
+				397BFACE20FF65A2008466FE /* Data Cell */,
+				39D9C66020BEA40900921DB4 /* Sensor Cell */,
 				39A23FFB20AC52C700B943DB /* ViewController.swift */,
 				39D9C65820BC62C900921DB4 /* LoginViewController.swift */,
 				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
@@ -136,13 +156,13 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		39D9C66020BEA40900921DB4 /* Custom Cell */ = {
+		39D9C66020BEA40900921DB4 /* Sensor Cell */ = {
 			isa = PBXGroup;
 			children = (
 				39D9C66320BEA4D200921DB4 /* CustomSensorCell.swift */,
 				39D9C66420BEA4D200921DB4 /* CustomSensorCell.xib */,
 			);
-			path = "Custom Cell";
+			path = "Sensor Cell";
 			sourceTree = "<group>";
 		};
 		6C4657FEACA76712E206A84D /* Frameworks */ = {
@@ -214,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A2401520B41A2600B943DB /* GoogleService-Info.plist in Resources */,
+				397BFAD220FF65DF008466FE /* DataTableViewCell.xib in Resources */,
 				397BFAC720F8C529008466FE /* wifi.png in Resources */,
 				39A2400120AC52C800B943DB /* Assets.xcassets in Resources */,
 				39D9C66620BEA4D200921DB4 /* CustomSensorCell.xib in Resources */,
@@ -260,6 +281,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -276,6 +298,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -295,9 +318,12 @@
 				39A2400D20AC531E00B943DB /* SensorDataModel.swift in Sources */,
 				3961417620D01C0C00679841 /* AddSensorViewController.swift in Sources */,
 				39A23FFA20AC52C700B943DB /* AppDelegate.swift in Sources */,
+				397BFACD20FF48B7008466FE /* GenericModel.swift in Sources */,
+				397BFAD120FF65DF008466FE /* DataTableViewCell.swift in Sources */,
 				39D9C65B20BC630A00921DB4 /* RegisterViewController.swift in Sources */,
 				39D9C65F20BD8CBD00921DB4 /* SensorDataViewController.swift in Sources */,
 				39D9C66520BEA4D200921DB4 /* CustomSensorCell.swift in Sources */,
+				397BFACB20FF2D1A008466FE /* Data.swift in Sources */,
 				39D9C65920BC62C900921DB4 /* LoginViewController.swift in Sources */,
 				39D9C65D20BD55B800921DB4 /* SensorListTableViewController.swift in Sources */,
 				39D9C65520BC53DB00921DB4 /* RoundedButton.swift in Sources */,

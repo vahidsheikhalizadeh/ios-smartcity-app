@@ -10,13 +10,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smartCity/View/PassivSensorTableViewController.swift"
-            timestampString = "553428945.382063"
+            timestampString = "553608014.025282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "addSensorPressed(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smartCity.PassivSensorTableViewController.addSensorPressed(__ObjC.UIBarButtonItem) -&gt; ()"
+                  moduleName = "smartCity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///development/smartcity/iosApp/smartCity/smartCity/View/PassivSensorTableViewController.swift"
+                  timestampString = "553540192.862794"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smartCity.PassivSensorTableViewController.addSensorPressed(__ObjC.UIBarButtonItem) -&gt; ()"
+                  moduleName = "smartCity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///development/smartcity/iosApp/smartCity/smartCity/View/PassivSensorTableViewController.swift"
+                  timestampString = "553540192.865142"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "1149">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,15 +13,31 @@ import Alamofire
 
 class SensorDataViewController: UITableViewController {
     
+    var curentSensorName : String = ""
     
-    var sensorArray:Results<SensorDataModel>?
+    @IBOutlet var sensorDataTableView: UITableView!
+    
+    var sensorDataArray:Results<Data>?
+    
     let realm = try! Realm()
     
     var selectedSensor : SensorDataModel?{
         
         didSet{
-            
-            leadSensotData()
+            if let currentSensor = selectedSensor {
+                do{
+                try realm.write {
+                    let newData = Data()
+                    newData.value = "27'"
+                    currentSensor.datas.append(newData)
+                    self.curentSensorName = currentSensor.name
+                }
+                }
+                catch{
+                    print("error adding new datar")
+                }
+            }
+            loadSensorData()
         }
     }
     
@@ -29,8 +45,8 @@ class SensorDataViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-  
+      sensorDataTableView.register(UINib(nibName: "DataTableViewCell", bundle: nil), forCellReuseIdentifier: "dataCustomeCell")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,25 +56,34 @@ class SensorDataViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return sensorDataArray?.count ?? 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        print("SENSOR DATA CELL")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCustomeCell", for: indexPath) as! DataTableViewCell
+        
+        if let data = sensorDataArray?[indexPath.row]{
+            cell.sensorDataValue.text = data.value
+            cell.sensorDataImage.image = UIImage(named: updateSensorIcon(name: curentSensorName ))
+        }
+        else{
+            cell.textLabel?.text = "sensor data is not available"
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -104,8 +129,40 @@ class SensorDataViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func leadSensotData()  {
+    func loadSensorData()  {
+    
+        sensorDataArray = selectedSensor?.datas.sorted(byKeyPath: "value", ascending: true)
         
-        //sensorArray = selectedSensor?.
+    }
+    
+    func updateSensorIcon(name: String) -> String {
+        
+        
+        print("!!!!!!!!!!")
+        
+        switch name {
+            
+        case "Temperatur":
+            return "temp-icon"
+            
+        case "Luftfeuchtigkeit":
+            return "humidity-icon"
+            
+        case "Lichtsensor":
+            return "light-icon"
+            
+        case "Parkplatz":
+            return "parking-icon"
+            
+        case "Füllstand":
+            return "trash-icon"
+            
+        case "Solar":
+            return "solar-icon"
+
+        default:
+            return "sensor"
+        }
+    
     }
 }

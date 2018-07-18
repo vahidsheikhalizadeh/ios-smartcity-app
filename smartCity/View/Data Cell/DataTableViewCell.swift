@@ -1,18 +1,20 @@
 //
-//  CustomSensorCell.swift
+//  DataTableViewCell.swift
 //  smartCity
 //
-//  Created by shick on 30.05.18.
+//  Created by shick on 18.07.18.
 //  Copyright © 2018 vahid. All rights reserved.
 //
 
 import UIKit
 
-class CustomSensorCell: UITableViewCell {
-
+class DataTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var sensorImageCell: UIImageView!
-    @IBOutlet weak var sensorNameCell: UILabel!
+    
+    
+    @IBOutlet weak var sensorDataImage: UIImageView!
+    
+    @IBOutlet weak var sensorDataValue: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
