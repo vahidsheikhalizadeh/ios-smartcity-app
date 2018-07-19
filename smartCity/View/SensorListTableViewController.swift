@@ -19,8 +19,6 @@ class SensorListTableViewController: UITableViewController {
     
     let realm = try! Realm()
     
-    //var sensorArray = [SensorDataModel]()
-    
     var timer = Timer()
     
     var sensorArray: Results<SensorDataModel>?
@@ -28,9 +26,7 @@ class SensorListTableViewController: UITableViewController {
     ////////////////////////////////////////////////
     //MARK: - RxSwift stuff
     
-    
-    
-    let url = ""
+
     
     ////////////////////////////////////////////////
     
@@ -38,7 +34,7 @@ class SensorListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchSensorData(url: "https://reqres.in/api/users/2")
+        fetchSensorData(url: "http://localhost:8080/sensors")
         
         loadSensorList()
         
@@ -96,6 +92,10 @@ class SensorListTableViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             
             destinationVS.selectedSensor = sensorArray?[indexPath.row]
+            
+            // here write the data to the current sensor in realm
+            
+            
             
         }
     }
@@ -181,46 +181,54 @@ class SensorListTableViewController: UITableViewController {
                     
                     print("Success, Sensor List  Network Call")
                     
-                     let resultJSON : JSON = JSON(response.result.value!)
+                    let resultJSON : JSON = JSON(response.result.value!)
     
                     
                     let s1 = SensorDataModel()
                     s1.id = 1
                     s1.name = "Temperatur"
-                    //s1.datas = resultJSON["_embedded"]["sensors"][1]["data"][4].string!
-                        
-                        
-                        
+                    
+                    let d1 = Data()
+                    d1.value = resultJSON["_embedded"]["sensors"][1]["data"][4].string!
+                    s1.datas.append(d1)
+                   
                     
                     
                     let s2 = SensorDataModel()
                     s2.id = 2
                     s2.name = "Luftfeuchtigkeit"
-                    //s2.datas = resultJSON["_embedded"]["sensors"][1]["data"][5].string!
                     
-                   //self.saveSensorData(sensor: s2)
+                    let d2 = Data()
+                    d2.value = resultJSON["_embedded"]["sensors"][1]["data"][5].string!
+                    s2.datas.append(d2)
+                    
                     
                     
                     let s3 = SensorDataModel()
                     s3.id = 3
                     s3.name = "Lichtsensor"
-                    //s3.datas = resultJSON["_embedded"]["sensors"][1]["data"][2].string!
                     
+                    let d3 = Data()
+                    d3.value = resultJSON["_embedded"]["sensors"][1]["data"][2].string!
+                    s3.datas.append(d3)
                     
                     
                     let s4 = SensorDataModel()
                     s4.id = 4
                     s4.name = "Füllstand"
-                    //s4.datas = resultJSON["_embedded"]["sensors"][1]["data"][3].string!
                     
+                    let d4 = Data()
+                    d4.value = resultJSON["_embedded"]["sensors"][1]["data"][3].string!
+                    s4.datas.append(d4)
                     
                     
                     let s5 = SensorDataModel()
                     s5.id = 5
                     s5.name = "Solar"
-                    //s5.datas = resultJSON["_embedded"]["sensors"][1]["data"][1].string!
-                    
-                    //self.saveSensorData(sensor: s5)
+    
+                    let d5 = Data()
+                    d5.value = resultJSON["_embedded"]["sensors"][1]["data"][1].string!
+                    s5.datas.append(d5)
                     
                     
                     let s6 = SensorDataModel()
@@ -228,10 +236,28 @@ class SensorListTableViewController: UITableViewController {
                     s6.name = "Parkplatz"
                     //s6.value = resultJSON["_embedded"]["sensors"][1]["data"][6].string!
                     
+                    let d6 = Data()
+                    d6.value = resultJSON["_embedded"]["sensors"][1]["data"][6].string!
+                    let d7 = Data()
+                    d7.value = resultJSON["_embedded"]["sensors"][1]["data"][7].string!
+                    let d8 = Data()
+                    d8.value = resultJSON["_embedded"]["sensors"][1]["data"][8].string!
+                    let d9 = Data()
+                    d9.value = resultJSON["_embedded"]["sensors"][1]["data"][9].string!
+                    let d10 = Data()
+                    d10.value = resultJSON["_embedded"]["sensors"][1]["data"][10].string!
+                    let d11 = Data()
+                    d11.value = resultJSON["_embedded"]["sensors"][1]["data"][11].string!
+                    
+                    s6.datas.append(d6)
+                    s6.datas.append(d7)
+                    s6.datas.append(d8)
+                    s6.datas.append(d9)
+                    s6.datas.append(d10)
+                    s6.datas.append(d11)
                     
                     
-                    
-                   // self.saveSensorData(sensor: s11)
+                   
                     
                     
                     try! self.realm.write {
@@ -279,7 +305,31 @@ class SensorListTableViewController: UITableViewController {
     }
     
     
-    func writeToDB() {
+    func writeToDB(name: String) -> String {
+        // IF NAME = ..  THEN DATA=..
+        switch name {
+            
+        case "Temperatur":
+            return ""
+            
+        case "Luftfeuchtigkeit":
+            return "humidity-icon"
+            
+        case "Lichtsensor":
+            return "light-icon"
+            
+        case "Parkplatz":
+            return "parking-icon"
+            
+        case "Füllstand":
+            return "trash-icon"
+            
+        case "Solar":
+            return "solar-icon2"
+            
+        default:
+            return "sensor"
+        }
         
     }
     

@@ -25,17 +25,8 @@ class SensorDataViewController: UITableViewController {
         
         didSet{
             if let currentSensor = selectedSensor {
-                do{
-                try realm.write {
-                    let newData = Data()
-                    newData.value = "27'"
-                    currentSensor.datas.append(newData)
-                    self.curentSensorName = currentSensor.name
-                }
-                }
-                catch{
-                    print("error adding new datar")
-                }
+                
+                     self.curentSensorName = currentSensor.name
             }
             loadSensorData()
         }
@@ -51,18 +42,12 @@ class SensorDataViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return sensorDataArray?.count ?? 1
     }
 
@@ -75,7 +60,9 @@ class SensorDataViewController: UITableViewController {
         
         if let data = sensorDataArray?[indexPath.row]{
             cell.sensorDataValue.text = data.value
-            cell.sensorDataImage.image = UIImage(named: updateSensorIcon(name: curentSensorName ))
+            let image : UIImage = UIImage(named: updateSensorIcon(name: curentSensorName ))!
+            print("SENSOR NAME: \(curentSensorName)")
+            cell.sensorDataImage.image = image
         }
         else{
             cell.textLabel?.text = "sensor data is not available"
