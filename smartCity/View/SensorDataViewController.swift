@@ -54,8 +54,6 @@ class SensorDataViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("SENSOR DATA CELL")
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCustomeCell", for: indexPath) as! DataTableViewCell
         
         if let data = sensorDataArray?[indexPath.row]{

@@ -15,3 +15,5 @@ class Data: Object {
     
     var parentCategotry = LinkingObjects(fromType: SensorDataModel.self, property: "datas")
 }
+
+

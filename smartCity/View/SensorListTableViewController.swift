@@ -270,18 +270,6 @@ class SensorListTableViewController: UITableViewController {
                         self.realm.add(s5)
                         self.realm.add(s6)
                         
-                        
-//                        let parkingSpace = self.realm.objects(SensorDataModel.self).filter("name = 'Parkplatz'").last!
-                        
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][6].string!)
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][7].string!)
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][8].string!)
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][9].string!)
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][10].string!)
-//                        parkingSpace.parkplatzValue.append(resultJSON["_embedded"]["sensors"][1]["data"][11].string!)
-                        
-                        
-                        
                     }
                     
                     print("RESULT: \(resultJSON["_embedded"]["sensors"][1]["data"][2])")

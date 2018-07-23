@@ -26,7 +26,7 @@ class AddSensorViewController: UIViewController {
     private var ifAddButtonSelectedVariables = Variable("")
     
     var ifButtonSelected : Observable<String>{
-    
+        
         return ifAddButtonSelectedVariables.asObservable()
     }
 
@@ -60,6 +60,9 @@ class AddSensorViewController: UIViewController {
         guard let urlAdress = urlTextField.text else {return}
         
         ifAddButtonSelectedVariables.value = sensorName
+        
+        
+        
         //ifAddButtonSelectedVariables.value = urlAdress
         
         addNewSensor(url: urlAdress,name: sensorName)

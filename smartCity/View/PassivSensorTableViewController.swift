@@ -142,9 +142,16 @@ class PassivSensorTableViewController: UITableViewController {
         targetVC.ifButtonSelected
             .subscribe(onNext: { name in
                 print(name)
+                if (name != ""){
+                    self.sensorArray.append(name)
+                    self.tableView.reloadData()
+                }
+                else{
+                    print("empty sensor name field")
+                }
                 
-                self.sensorArray.append(name)
-                self.tableView.reloadData()
+                
+                //write into data base
                 
             }).disposed(by: disposeBag)
 

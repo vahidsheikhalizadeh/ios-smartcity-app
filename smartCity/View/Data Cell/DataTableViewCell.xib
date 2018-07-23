@@ -35,7 +35,7 @@
                             <constraint firstAttribute="width" secondItem="OgO-D5-3eF" secondAttribute="height" multiplier="13:5" id="mgO-56-qlL"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
-                        <color key="textColor" red="0.17979452919397385" green="0.057351084762617764" blue="0.32671716370558379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.16791213948651179" green="0.24264000974918112" blue="0.27696700507614214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
