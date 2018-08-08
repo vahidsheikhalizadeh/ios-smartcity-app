@@ -112,7 +112,7 @@
 				39D9C65420BC53DB00921DB4 /* RoundedButton.swift */,
 				39A23FF920AC52C700B943DB /* AppDelegate.swift */,
 				39A2400B20AC52DF00B943DB /* Data Model */,
-				39A2400F20AC534A00B943DB /* Presenter */,
+				39A2400F20AC534A00B943DB /* Controller */,
 				39A2400E20AC532E00B943DB /* View */,
 				39A2400020AC52C800B943DB /* Assets.xcassets */,
 				397BFAC620F8C528008466FE /* wifi.png */,
@@ -137,6 +137,14 @@
 			children = (
 				397BFACE20FF65A2008466FE /* Data Cell */,
 				39D9C66020BEA40900921DB4 /* Sensor Cell */,
+				39A23FFD20AC52C700B943DB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A2400F20AC534A00B943DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				39A23FFB20AC52C700B943DB /* ViewController.swift */,
 				39D9C65820BC62C900921DB4 /* LoginViewController.swift */,
 				39D9C65A20BC630A00921DB4 /* RegisterViewController.swift */,
@@ -144,16 +152,8 @@
 				39D9C65E20BD8CBD00921DB4 /* SensorDataViewController.swift */,
 				397BFAC420F8BD78008466FE /* PassivSensorTableViewController.swift */,
 				3961417520D01C0C00679841 /* AddSensorViewController.swift */,
-				39A23FFD20AC52C700B943DB /* Main.storyboard */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		39A2400F20AC534A00B943DB /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		39D9C66020BEA40900921DB4 /* Sensor Cell */ = {
