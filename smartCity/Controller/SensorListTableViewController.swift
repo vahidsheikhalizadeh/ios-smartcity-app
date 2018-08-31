@@ -24,13 +24,7 @@ class SensorListTableViewController: UITableViewController {
     var sensorArray: Results<SensorDataModel>?
     
     ////////////////////////////////////////////////
-    //MARK: - RxSwift stuff
-    
-
-    
-    ////////////////////////////////////////////////
-    
-    
+    //MARK: - RxSwift
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,8 +88,6 @@ class SensorListTableViewController: UITableViewController {
             destinationVS.selectedSensor = sensorArray?[indexPath.row]
             
             // here write the data to the current sensor in realm
-            
-            
             
         }
     }
@@ -164,7 +156,6 @@ class SensorListTableViewController: UITableViewController {
     func loadSensorList() {
         
         sensorArray = realm.objects(SensorDataModel.self)
-        
         
         tableView.reloadData()
     }
@@ -255,10 +246,6 @@ class SensorListTableViewController: UITableViewController {
                     s6.datas.append(d9)
                     s6.datas.append(d10)
                     s6.datas.append(d11)
-                    
-                    
-                   
-                    
                     
                     try! self.realm.write {
                         

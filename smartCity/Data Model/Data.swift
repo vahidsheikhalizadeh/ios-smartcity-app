@@ -13,7 +13,9 @@ class Data: Object {
     
     @objc dynamic var value : String = ""
     
-    var parentCategotry = LinkingObjects(fromType: SensorDataModel.self, property: "datas")
+    var parentCategotry1 = LinkingObjects(fromType: SensorDataModel.self, property: "datas")
+    
+    var parentCategotry2 = LinkingObjects(fromType: GenericModel.self, property: "data")
 }
 
 

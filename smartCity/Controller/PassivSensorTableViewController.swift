@@ -9,41 +9,50 @@
 import UIKit
 import RxSwift
 import RealmSwift
+import Realm
+import Alamofire
+import SwiftyJSON
 
-class PassivSensorTableViewController: UITableViewController {
-   
+class PassivSensorTableViewController: UITableViewController, CanReceive {
     
-   
+    var sensorName = ""
+    
+    var sensorCurrentData: String = "no data vailable"
+    
     let realm = try! Realm()
     
-    let disposeBag = DisposeBag()
+    var sensorArray: Results<GenericModel>?
     
+    @IBOutlet var passiveTableView: UITableView!
+
     @IBOutlet var passicSensorListTableView: UITableView!
     
-    var sensorArray  = ["Test"]
-    
+    func dataReceive(data: String) {
+        sensorName = data
+        print("!!!!!!!!!!!!",sensorName)
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
+        loadSensorList()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sensorArray.count
+        print("Sensor array Size: \(sensorArray?.count ?? 1)")
+        return sensorArray?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -54,133 +63,122 @@ class PassivSensorTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
-        //cell.delegate = self
-        cell.sensorNameCell.text = sensorArray[indexPath.row]
+         let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
+    
+         cell.sensorNameCell?.text = sensorArray?[indexPath.row].name ?? "No sensor has been Added!"
         
-       
-        
-        return cell
+         return cell
     }
     
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+
         performSegue(withIdentifier: "showData", sender: self)
     }
     
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showData"{
 
+            let destinationVC = segue.destination as! PassiveDataTableViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow{
+                
+            destinationVC.selectedSensor = sensorArray?[indexPath.row]
+            }
+        }
+        else if segue.identifier == "addSensor" {
+            let destinationVC = segue.destination as! AddSensorViewController
+            destinationVC.delegate = self
+        }
+    }
+
+    //MARK: - delete a sensor(row) from table view
     
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            sensorArray.remove(at: indexPath.item)
-            
-            /*
-             here to remove from the database
              
              do {
              try realm.write{
-             realm.delete(sensorArray[indexPath.row])
+                realm.delete((sensorArray?[indexPath.row])!)
              }
              }
              catch{
              print("Error deleting passiv sensor \(error)")
                 }
-             
-             
-             */
         
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func addSensorPressed(_ sender: UIBarButtonItem) {
         
+        performSegue(withIdentifier: "addSensor", sender: self)
         
-        let targetVC = storyboard?.instantiateViewController(withIdentifier: "AddSensorViewController") as! AddSensorViewController
-        
-        navigationController?.pushViewController(targetVC, animated: true)
-        
-        targetVC.ifButtonSelected
-            .subscribe(onNext: { name in
-                print(name)
-                if (name != ""){
-                    self.sensorArray.append(name)
-                    self.tableView.reloadData()
-                }
-                else{
-                    print("empty sensor name field")
-                }
-                
-                
-                //write into data base
-                
-            }).disposed(by: disposeBag)
-
+                tableView.reloadData()
     }
+    
+    //MARK: - load sensor data from DB
+    
+    func loadSensorList() {
+        
+        sensorArray = realm.objects(GenericModel.self)
+        
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: - fetch sensor data
+    func fetchSensorData(name: String,index: Int) -> String {
+        
+        let url = "http://localhost:8080/last/" + name
+        
+        
+        Alamofire.request(url, method: .get)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    
+                    let json : JSON = JSON(response.result.value!)
+                    print("JSONNNNNN:",json)
+                    let sensorData = json ["data"][1].string!
+                    print("SENSOR DATA WOOHOO\(sensorData)")
+                    self.sensorCurrentData = sensorData
+                    if let sensor = self.sensorArray?[index]{
+                    do {
+                        try self.realm.write {
+                            print("SENSOR DATA ::::",sensorData)
+                            let data = Data()
+                            data.value = sensorData
+                            sensor.data.append(data)
+                        }
+                    }
+                    catch{
+                        print("Error saving data in sensors")
+                    }
+                    }
+                }
+                    
+                else {
+                    print("Error: \(String(describing: response.result.error))")
+                }
+                
+        }
+        
+        return sensorCurrentData
+    }
+
 }
 
-
-////MARK: - Swipe Cell Delegate Method
-//
-//extension PassivSensorTableViewController: SwipeTableViewCellDelegate{
-//
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
-//
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-//
-//            print("Swipe closure execution !")
-//        }
-//
-//        // customize the action appearance
-//        deleteAction.image = UIImage(named: "delete-icon")
-//
-//        return [deleteAction]
-//    }
-//
-//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-//        var options = SwipeOptions()
-//        options.expansionStyle = .destructive
-//        options.transitionStyle = .border
-//        return options
-//    }
-//}

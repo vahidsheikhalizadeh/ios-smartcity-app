@@ -13,6 +13,7 @@ class GenericModel: Object {
     
     @objc dynamic var id: Int = 0
     @objc dynamic var name  : String = ""
-    let datas = List<Data>()
+    let data = List<Data>()
     //  the value unit °C for example
 }
+
