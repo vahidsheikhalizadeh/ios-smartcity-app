@@ -16,6 +16,7 @@ import SwiftyJSON
 class PassivSensorTableViewController: UITableViewController, CanReceive {
     
     var sensorName = ""
+    var sensorData = ""
     
     var sensorCurrentData: String = "no data vailable"
     
@@ -27,16 +28,22 @@ class PassivSensorTableViewController: UITableViewController, CanReceive {
 
     @IBOutlet var passicSensorListTableView: UITableView!
     
-    func dataReceive(data: String) {
-        sensorName = data
-        print("!!!!!!!!!!!!",sensorName)
+    func dataReceive(name: String,data: String) {
+        sensorName = name
+        sensorData = data
+        print("!!!!!!!!!!!!",sensorData)
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
+        
         loadSensorList()
+        
+        //it is possible to write a function and get sensors which the name!= nil and call it here
+        
+        passicSensorListTableView.register(UINib(nibName: "CustomSensorCell", bundle: nil), forCellReuseIdentifier: "sensorCustomCell")
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +58,6 @@ class PassivSensorTableViewController: UITableViewController, CanReceive {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Sensor array Size: \(sensorArray?.count ?? 1)")
         return sensorArray?.count ?? 1
     }
     
@@ -65,7 +71,10 @@ class PassivSensorTableViewController: UITableViewController, CanReceive {
 
          let cell = tableView.dequeueReusableCell(withIdentifier: "sensorCustomCell", for: indexPath) as! CustomSensorCell
     
-         cell.sensorNameCell?.text = sensorArray?[indexPath.row].name ?? "No sensor has been Added!"
+        
+        if let sensor =  sensorArray?[indexPath.row]{
+            cell.sensorNameCell.text = sensor.name
+        }
         
          return cell
     }
@@ -73,7 +82,7 @@ class PassivSensorTableViewController: UITableViewController, CanReceive {
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
 
         performSegue(withIdentifier: "showData", sender: self)
     }
@@ -84,13 +93,15 @@ class PassivSensorTableViewController: UITableViewController, CanReceive {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showData"{
-
+            
             let destinationVC = segue.destination as! PassiveDataTableViewController
             
             if let indexPath = tableView.indexPathForSelectedRow{
                 
             destinationVC.selectedSensor = sensorArray?[indexPath.row]
+    
             }
         }
         else if segue.identifier == "addSensor" {

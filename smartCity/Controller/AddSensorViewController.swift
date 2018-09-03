@@ -13,7 +13,7 @@ import RealmSwift
 
 
 protocol CanReceive {
-    func dataReceive(data: String)
+    func dataReceive(name: String,data: String)
 }
 
 class AddSensorViewController: UIViewController {
@@ -69,12 +69,12 @@ class AddSensorViewController: UIViewController {
         
         //ifAddButtonSelectedVariables.value = sensorName
         
-        delegate?.dataReceive(data: sensorName)
+        
         
         addNewSensor(url: urlAdress,name: sensorName)
         saveSensorData(name: sensorName)
+        delegate?.dataReceive(name: sensorName, data: "")
         group.notify(queue: .main) {
-            print("yaya")
         }
         self.dismiss(animated: true, completion: nil)
         
@@ -115,7 +115,6 @@ class AddSensorViewController: UIViewController {
         group.enter()
         run(after: 1) {
             let url = "http://localhost:8080/last/" + name
-            print("URL ::::",url)
             Alamofire.request(url, method: .get)
                 .responseJSON { response in
                     if response.result.isSuccess {
@@ -126,6 +125,7 @@ class AddSensorViewController: UIViewController {
                         
                         let sensorDM = GenericModel()
                         sensorDM.name = name
+                        
                         
                         let data = Data()
                         data.value = sensorData
@@ -153,7 +153,7 @@ class AddSensorViewController: UIViewController {
     }
     
     //MARK: - Multithread of network calls
-    /**************************************************************/
+    
     func run(after second: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(second)
         DispatchQueue.main.asyncAfter(deadline: deadline) {

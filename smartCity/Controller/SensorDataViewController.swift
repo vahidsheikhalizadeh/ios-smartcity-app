@@ -51,12 +51,15 @@ class SensorDataViewController: UITableViewController {
         return sensorDataArray?.count ?? 1
     }
 
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCustomeCell", for: indexPath) as! DataTableViewCell
         
         if let data = sensorDataArray?[indexPath.row]{
+            
             cell.sensorDataValue.text = data.value
             let image : UIImage = UIImage(named: updateSensorIcon(name: curentSensorName ))!
             print("SENSOR NAME: \(curentSensorName)")

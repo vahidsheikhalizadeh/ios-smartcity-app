@@ -86,9 +86,6 @@ class SensorListTableViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             
             destinationVS.selectedSensor = sensorArray?[indexPath.row]
-            
-            // here write the data to the current sensor in realm
-            
         }
     }
     
